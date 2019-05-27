@@ -1,0 +1,16 @@
+<div>
+  <form [formGroup]="primeNumberForm" (ngSubmit)="submitForm()">
+
+    <div class="form-group number">
+      <label>CVV/CVC</label>
+      <input class="form-control" formControlName="number" type="text" placeholder="123"
+        [ngClass]="{'error': primeNumberForm.controls.number.errors}">
+      <div *ngIf="primeNumberForm.controls.number.errors&&primeNumberForm.controls.number.dirty" class="alert alert-danger">Invalid Number.</div>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <h3 *ngIf="submited" class="center-block text-center">{{displayMessage}}</h3>
+  </form>
+</div>
